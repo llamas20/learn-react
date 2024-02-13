@@ -5,7 +5,16 @@ export default function Gallery() {
   const [index, setIndex] = useState(0);
 
   function handleClick() {
-    setIndex(index + 1);
+    setIndex((index + 1) % sculptureList.length);
+  }
+
+  function decrimentOnClick() {
+    if(index == 0) {
+      setIndex(sculptureList.length - 1);
+    }
+    else {
+      setIndex(index - 1);
+    }
   }
 
   let sculpture = sculptureList[index];
@@ -13,6 +22,9 @@ export default function Gallery() {
     <>
       <button onClick={handleClick}>
         Next
+      </button>
+      <button onClick={decrimentOnClick}>
+        Previous
       </button>
       <h2>
         <i>{sculpture.name} </i>
