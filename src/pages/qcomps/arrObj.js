@@ -7,10 +7,13 @@ const initialList = [
   { id: 2, title: 'Terracotta Army', seen: true },
 ];
 
+
 export default function BucketList() {
   const [myList, setMyList] = useState(initialList);
   const [yourList, setYourList] = useState(
-    initialList
+    initialList.map((item) => {
+      return {...item};
+    })
   );
 
   function handleToggleMyList(artworkId, nextSeen) {
