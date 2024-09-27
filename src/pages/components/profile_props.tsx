@@ -1,6 +1,7 @@
 import { AvatarProps } from "@/types/avatar";
 
-function Avatar({person, size=100}: AvatarProps) {
+function Avatar(props: AvatarProps) {
+  const {person, size=100} = props;
   return (
     <img
       className="avatar"
